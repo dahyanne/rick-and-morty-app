@@ -1,0 +1,14 @@
+<h1>Episodios</h1>
+
+<div *ngFor="let episodio of episodios">
+  <h2>{{ episodio.name }}</h2>
+  <p>Episodio: {{ episodio.episode }}</p>
+  <p>Fecha de emisión: {{ episodio.air_date }}</p>
+</div>
+
+<div *ngIf="paginaActual > 1">
+  <button (click)="cargarPaginaAnterior()">Página Anterior</button>
+</div>
+<div *ngIf="haySiguientePagina">
+  <button (click)="cargarSiguientePagina()">Siguiente Página</button>
+</div>

@@ -1,0 +1,14 @@
+<h1>Ubicaciones</h1>
+
+<div *ngFor="let ubicacion of ubicaciones">
+  <h2>{{ ubicacion.name }}</h2>
+  <p>Tipo: {{ ubicacion.type }}</p>
+  <p>Dimensión: {{ ubicacion.dimension }}</p>
+</div>
+
+<div *ngIf="paginaActual > 1">
+  <button (click)="cargarPaginaAnterior()">Página Anterior</button>
+</div>
+<div *ngIf="haySiguientePagina">
+  <button (click)="cargarSiguientePagina()">Siguiente Página</button>
+</div>

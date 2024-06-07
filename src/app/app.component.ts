@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ServicioRickAndMortyService } from './servicios/servicio-rick-and-morty.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'rick-and-morty-app';
+export class AppComponent implements OnInit {
+  title = 'Aplicación Rick and Morty';
+  characters: any[] = [];
+
+  constructor(private servicioRickAndMorty: ServicioRickAndMortyService) { }
+
+  ngOnInit() {
+    this.servicioRickAndMorty.getPersonajes().subscribe(data => {
+      this.characters = data.results;
+    });
+  }
 }

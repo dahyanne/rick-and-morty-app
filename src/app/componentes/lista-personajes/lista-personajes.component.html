@@ -1,0 +1,15 @@
+<h1>Personajes</h1>
+
+<div *ngFor="let personaje of personajes">
+  <h2>{{ personaje.name }}</h2>
+  <p>Estado: {{ personaje.status }}</p>
+  <p>Especie: {{ personaje.species }}</p>
+  <p>Ubicación: {{ personaje.location.name }}</p>
+</div>
+
+<div *ngIf="paginaActual > 1">
+  <button (click)="cargarPaginaAnterior()">Página Anterior</button>
+</div>
+<div *ngIf="haySiguientePagina">
+  <button (click)="cargarSiguientePagina()">Siguiente Página</button>
+</div>
